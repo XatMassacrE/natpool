@@ -40,7 +40,7 @@ docker run -ti --restart unless-stopped --name natpool -d -v /root/ssl.crt:/code
 
 ### 查看运行日志
 ```shell
-docker logs -f -tail 20 natpool
+docker logs -f --tail 20 natpool
 ```
 ### 转发f2pool.com:8008到本机0.0.0.0:6688上，并且开启ssl的命令(请自行将crt和key证书文件上传到/root目录下)
 ```shell
