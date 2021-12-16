@@ -42,6 +42,19 @@ docker run -ti --restart unless-stopped --name natpool -d -v /root/ssl.crt:/code
 ```shell
 docker logs -f -tail 20 natpool
 ```
+### 转发f2pool.com:8008到本机0.0.0.0:6688上，并且开启ssl的命令(请自行将crt和key证书文件上传到/root目录下)
+```shell
+docker stop natpool
+docker rm natpool
+docker run -ti --restart unless-stopped --name natpool -d -v /root/ssl.crt:/code/ssl.crt -v /root/ssl.key:/code/ssl.key -p 6688:6688 natpool/natpool:latest --laddr 0.0.0.0 --lport 6688 --lprot ssl --lcrt /root/ssl.crt --lkey /root/ssl.key --caddr eth.f2pool.com --cprot tcp --cport 8008 --csslau
+```
+
+### 转发f2pool.com:6688到本机0.0.0.0:9000上，无ssl加密的创建命令
+```shell
+docker stop natpool
+docker rm natpool
+docker run -ti --restart unless-stopped --name natpool -d -p 9000:9000 natpool/natpool:latest --laddr 0.0.0.0 --lport 9000 --lprot tcp --caddr eth.f2pool.com --cprot tcp --cport 6688
+```
 
 ### 如果这个项目帮到了你，可以向下面地址捐赠
 Bitcoin: 14AYY3ah6VbxV9mPpKPdtrsGCqnkwjFdeN
