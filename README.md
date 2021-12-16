@@ -47,3 +47,5 @@ docker logs -f -tail 20 natpool
 Bitcoin: 14AYY3ah6VbxV9mPpKPdtrsGCqnkwjFdeN
 
 Ethereum: 0xb3f1e1dec11587348590e9a57d5eb191794c1066
+
+WX: ![image](https://github.com/notchampions/natpool/blob/main/pic/v.jpg)
