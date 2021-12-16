@@ -42,3 +42,8 @@ docker run -ti --name natpool -d -v /root/ssl.crt:/code/ssl.crt -v /root/ssl.key
 ```shell
 docker logs -f -tail 20 natpool
 ```
+
+### 如果这个项目帮到了你，可以向下面地址捐赠
+Bitcoin: 14AYY3ah6VbxV9mPpKPdtrsGCqnkwjFdeN
+
+Ethereum: 0xb3f1e1dec11587348590e9a57d5eb191794c1066
