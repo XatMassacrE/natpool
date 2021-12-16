@@ -20,9 +20,9 @@ curl -sSL https://get.daocloud.io/docker | sh
 ```
 5. docker安装完成后，可以直接用命令启动
 ```shell
-docker run -ti --name natpool -d -v /root/ssl.crt:/code/ssl.crt -v /root/ssl.key:/code/ssl.key -p 6688:6688 natpool/natpool:latest --laddr 0.0.0.0 --lport 6688 --lprot ssl --lcrt /root/ssl.crt --lkey /root/ssl.key --caddr eth.f2pool.com --cprot tcp --cport 8008 --csslau
+docker run -ti --restart unless-stopped --name natpool -d -v /root/ssl.crt:/code/ssl.crt -v /root/ssl.key:/code/ssl.key -p 6688:6688 natpool/natpool:latest --laddr 0.0.0.0 --lport 6688 --lprot ssl --lcrt /root/ssl.crt --lkey /root/ssl.key --caddr eth.f2pool.com --cprot tcp --cport 8008 --csslau
 ```
- * 其中`docker run -ti --name natpool -d`是启用一个后台的docker容器，名字是natpool，这里的natpool可以自行修改
+ * 其中`docker run -ti --restart unless-stopped --name natpool -d`是启用一个后台的docker容器，名字是natpool，这里的natpool可以自行修改
  * `-v /root/ssl.crt:/code/ssl.crt`是将系统中的`/root/ssl.crt`文件，映射为容器中的`/code/ssl.crt`，这里后面的内容必须和下面的`--lcrt /root/ssl.crt`的文件路径一样
  * `-v /root/ssl.key:/code/ssl.key`是将系统中的`/root/ssl.key`文件，映射为容器中的`/code/ssl.key` 这2个文件是启用ssl的时候的证书文件，这里后面的内容必须和下面的`--lcrt /root/ssl.key`的文件路径一样
  * `-p 6688:6688`是对外开放的端口，我这里开放6688端口给矿机使用，必须和后面的`--lport`写的值对应
